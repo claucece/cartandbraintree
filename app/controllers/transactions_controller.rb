@@ -1,11 +1,14 @@
 class TransactionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_cart!
+  before_action :load_braintree_data, only: [:show, :edit]
+
+  def show
+  end
 
   def new
-  gon.client_token = generate_client_token
+    gon.client_token = generate_new_client_token
   end
-  
+
   def create
     @result = Braintree::Transaction.sale(
               amount: current_user.cart_total_price,
@@ -19,19 +22,11 @@ class TransactionsController < ApplicationController
       render :new
     end
   end
-  # Other Code
 
   private
-  
-  def generate_client_token
-  Braintree::ClientToken.generate
-  end
 
- def check_cart!
-    if current_user.get_cart_movies.blank?
-      redirect_to root_url, alert: "Please add some items to your cart before processing your transaction!"
-    end
+  def generate_new_client_token
+    Braintree::ClientToken.generate
   end
 
 end
-
