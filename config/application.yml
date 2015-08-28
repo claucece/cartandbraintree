@@ -1,0 +1,4 @@
+# Braintree configuration keys
+BRAINTREE_MERCHANT_ID: 'rzvfs6knk62bx8zz'
+BRAINTREE_PUBLIC_KEY: 'nvqwpnf7k58cssc7'
+BRAINTREE_PRIVATE_KEY: '4cd28608415812f9134d1b5bd6d389cd'
