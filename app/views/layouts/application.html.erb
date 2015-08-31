@@ -7,7 +7,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "MovieStore - Online movies" %></title>
     <link rel="shortcut icon" href="<%=asset_path("logo.png")%>" >
 
-
+    <%= include_gon %>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
@@ -26,11 +26,11 @@
     <footer class="row">
       <div class="large-12 columns">
         <hr>
-        <p>© MovieStore 2014</p>
+        <p>© MovieStore 2015</p>
       </div>
     </footer>
 
     <%= javascript_include_tag "application" %>
-    
+
   </body>
 </html>

@@ -50,6 +50,10 @@ group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
+# Payments
+  gem 'braintree', '~> 2.33.1'
+  gem 'figaro', '~> 0.7.0' # Environment variables
+  gem 'gon', '~> 5.1.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
