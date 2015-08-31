@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!
+
   def show
     @cart_movies = current_user.get_cart_movies
   end
