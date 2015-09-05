@@ -10,6 +10,7 @@ class TransactionsController < ApplicationController
     @result = Braintree::Transaction.sale(
                 amount: current_user.cart_total_price,
                 payment_method_nonce: params[:payment_method_nonce],
+                plan_id: "Kubrick",
                 customer: {
                   first_name: params[:first_name],
                   last_name: params[:last_name],
@@ -18,7 +19,8 @@ class TransactionsController < ApplicationController
                   phone: params[:phone]
                 },
                 options: {
-                  store_in_vault: true
+                  store_in_vault: true,
+                  verify_card: true
                 })
   else
     @result = Braintree::Transaction.sale(
